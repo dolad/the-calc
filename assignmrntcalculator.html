@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>assignmentcalculator</title>
+<style>
+input{width:100%;
+       height:30px;}
+input[type=button]{height:100%;
+         background-color:#0F6};
+ input#screen{
+	 height:70px;
+	 background-color:#000;
+	 color:#FFF;
+	 font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	 
+	 
+	 }
+
+
+</style>
+<script>
+var fi="0";
+var se="0";
+oper=""
+var e= MathPi
+function num(val){
+	if((document.getElementById("screen").value==0)&&(document.getElementById("power").value=="OFF"))
+         {document.getElementById("screen").value=val}
+    else if(document.getElementById("screen").value!=0)
+	{document.getElementById("screen").value+=val
+	}
+	else{
+		document.getElementById("screen").value=""}
+}
+function operator(v){
+	fi=document.getElementById("screen").value;
+	document.getElementById("screen").value="";
+	oper=v;
+	
+}
+function evalo(){
+	se=document.getElementById("screen").value;
+	if(oper=='add'){document.getElementById("screen").value=parseInt(fi)+parseInt(se)}
+	else if(oper=='minus'){document.getElementById("screen").value=fi-se;}
+	else if(oper=='div'){document.getElementById("screen").value=fi/se;}
+	else if(oper=='mult'){document.getElementById("screen").value=fi*se;}
+	}
+function clea()
+{document.getElementById("screen").value="";}
+
+	
+function power(){
+if(document.getElementById("power").value=="OFF"){
+	  document.getElementById("screen").value="";
+	   document.getElementById("power").value="ON";} 
+else if(document.getElementById("power").value=="ON")
+	     {document.getElementById("screen").value=0;
+	      document.getElementById("power").value="OFF";}
+		 
+}
+function sine(){x=document.getElementById("screen").value
+                document.getElementById("screen").value=Math.sin(x);
+	
+	}
+</script>
+</head>
+
+<body>
+<table width="272" height="312" border="1">
+  <tr>
+    <td width="43" height="52">&nbsp;</td>
+    <td colspan="3" rowspan="2">&nbsp;
+    <input type="text" id="screen" /></td>
+    <td width="55">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input type="button" name="button8" id="button7" value="square" /></td>
+    <td width="45"><form id="form1" name="form1" method="post" action="">
+      <input type="button" name="button2" id="button" onclick="sine()" value="sine" />
+    </form></td>
+    <td width="42"><form id="form2" name="form2" method="post" action="">
+      <input type="button" name="button3" id="button2" value="cos" />
+    </form></td>
+    <td width="53"><form id="form3" name="form3" method="post" action="">
+      <input type="button" name="button4" id="button3" value="tan" />
+    </form></td>
+    <td><input type="button" name="clear" id="clear" onclick="clea()" value="clear"/></td>
+  </tr>
+  <tr>
+    <td><input type="button" name="button9" id="button8" value="Sqrt" /></td>
+    <td><form id="form4" name="form4" method="post" action="">
+      <input type="button" name="button5" id="button4" value="asin" />
+    </form></td>
+    <td><form id="form5" name="form5" method="post" action="">
+      <input type="button" name="button6" id="button5" value="acos" />
+    </form></td>
+    <td><input type="button" name="button7" id="button6" value="atan" /></td>
+    <td><input type="button" name="div" id="div" onclick="operator('div')" value="/" /></td>
+  </tr>
+  <tr>
+    <td rowspan="3">&nbsp;</td>
+    <td><input type="button" name="seven" id="seven" onclick="num('7')" value="7" /></td>
+    <td><input type="button" name="eight" id="eight" onclick="num('8')" value="8" /></td>
+    <td><input type="button" name="nine" id="nine" onclick="num('9')" value="9" /></td>
+    <td><input type="button" name="minus" id="minus" onclick="operator('minus')" value="-" /></td>
+  </tr>
+  <tr>
+    <td><input type="button" name="four" id="four" onclick="num('4')" value="4" /></td>
+    <td><input type="button" id="five" onclick="num('5')"  value="5" /></td>
+    <td><input type="button" name="six" id="six" onclick="num('6')" value="6" /></td>
+    <td><input name="button" type="button" id="mult" onclick="operator('mult')" value="*" /></td>
+  </tr>
+  <tr>
+    <td><input type="button" name="one" id="one" onclick="num('1')" value="1" /></td>
+    <td><input type="button" name="two" id="two" onclick="num('2')" value="2" /></td>
+    <td><input type="button" name="three" id="three" onclick="num('3')" value="3" /></td>
+    <td rowspan="2"><input type="button" name="add" id="add" onclick="operator('add')" value="+" /></td>
+  </tr>
+  <tr>
+    <td rowspan="2"><input type="button" name="power" id="power" onclick="power()" value="ON" /></td>
+    <td height="25"><input type="button" name="zero" id="zero" onclick="num('0')" value="0" /></td>
+    <td><input type="button" name="button" id="dot" onclick="num('.')" value="." /></td>
+    <td><input name="pi" type="button" id="pi"  onclick="p()" value="pi" /></td>
+  </tr>
+  <tr>
+    <td height="25" colspan="4"><input type="button" name="equal" id="equal" onclick="evalo()"value="=" /></td>
+  </tr>
+</table>
+</body>
+</html>
